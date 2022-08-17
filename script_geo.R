@@ -26,16 +26,17 @@ gridded(grid) = ~X+Y
 plot(grid)
 
 
-## Fit universal kriging 
+## Fit variograms
 g <- gstat(id="C_total%", formula = C_total~1, data = field_2016)
 variog <- gstat::variogram(g)
 plot(variog, pch=16, cex=1)
 
-
+## Exponential
 fit_exp <- fit.variogram(variog, vgm(1, "Exp", 200, 0.4))   #vgm(psill, model, range, nugget)
 plot(variog, fit_exp, pch=16, cex=1)
 fit_exp
 
+## Spherical
 fit_shp <- fit.variogram(variog, vgm(1, "Sph", 200, 0.4))   #vgm(psill, model, range, nugget)
 plot(variog, fit_shp, pch=16, cex=1)
 fit_shp
