@@ -1,5 +1,5 @@
 ## Load libraries
-library(raster)))
+library(raster)
 library(rgdal)
 
 # Set working directory and load shapefile and raster
