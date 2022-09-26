@@ -93,6 +93,6 @@ Map.addLayer(L8_median,
 
 //Export image
 Export.image.toDrive({image: L8_median,
-                      description: 'L8_median_2013',
+                      description: 'L8Median2013_27700',
                       scale: 30, 
-                      crs: 'EPSG:4326'})
+                      crs: 'EPSG:27700'})
