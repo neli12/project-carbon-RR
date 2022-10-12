@@ -381,9 +381,129 @@ GROUP BY data_inicio1);
 ### Split date
 CREATE TABLE nwp.def2012(
 SELECT 
-	DAY(data_inicio1) AS day2012,
-	MONTH(data_inicio1) AS month2012,
-	YEAR(data_inicio1) AS year2012,
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
     ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
     max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
 FROM nwp.meas2012);
+DELETE FROM nwp.def2012
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2013(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2013);
+DELETE FROM nwp.def2013
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2014(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2014);
+DELETE FROM nwp.def2014
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2015(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2015);
+DELETE FROM nwp.def2015
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2016(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2016);
+DELETE FROM nwp.def2016
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2017(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2017);
+DELETE FROM nwp.def2017
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2018(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2018);
+DELETE FROM nwp.def2018
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2019(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2019);
+DELETE FROM nwp.def2019
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2020(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2020);
+DELETE FROM nwp.def2020
+ORDER BY dayoftheyear DESC LIMIT 1;
+
+CREATE TABLE nwp.def2021(
+SELECT 
+	DAY(data_inicio1) AS day_,
+	MONTH(data_inicio1) AS month_,
+	YEAR(data_inicio1) AS year_,
+    ROW_NUMBER() OVER (ORDER BY data_inicio1) AS dayoftheyear,
+    max_airT, min_airT, ROUND(avg_prec, 5) as avg_prec, avg_solar_rad, avg_wind_speed, avg_rh 
+FROM nwp.meas2021);
+
+CREATE TABLE nwp.all_weather(
+SELECT * FROM nwp.def2012
+UNION
+SELECT * FROM nwp.def2013
+UNION
+SELECT * FROM nwp.def2014
+UNION
+SELECT * FROM nwp.def2015
+UNION
+SELECT * FROM nwp.def2016
+UNION
+SELECT * FROM nwp.def2017
+UNION
+SELECT * FROM nwp.def2018
+UNION
+SELECT * FROM nwp.def2019
+UNION
+SELECT * FROM nwp.def2020
+UNION
+SELECT * FROM nwp.def2021);
