@@ -507,3 +507,8 @@ UNION
 SELECT * FROM nwp.def2020
 UNION
 SELECT * FROM nwp.def2021);
+
+# Monthly
+CREATE TABLE nwp.month_weather(
+SELECT * FROM nwp.all_weather
+GROUP BY month_, year_);
